@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Estudando_DI_IoC_Mock.Model\Estudando_DI_IoC_Mock.Model.csproj" />
+  </ItemGroup>
+
+</Project>
