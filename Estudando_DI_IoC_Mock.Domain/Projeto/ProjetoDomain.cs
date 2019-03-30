@@ -8,19 +8,23 @@ namespace Estudando_DI_IoC_Mock.Domain.Projeto
 {
     public class ProjetoDomain : IProjetoDomain
     {
+        IProjetoData _projetoData;
+
+        public ProjetoDomain(IProjetoData projetoData)
+        {
+            _projetoData = projetoData;
+        }
+        
         public (bool sucesso, string mensagem) Efetivar(string sigla)
         {
-            if (ProjetoEstaAtivo(sigla) == false)
+            var projeto = _projetoData.Buscar(sigla);
+
+            if (_projetoData.ProjetoEstaAtivo(projeto) == false)
                 return (false, "Status do projeto impede sua efetivação");
 
             //Lógica...
 
             return (true, "Efetivado com sucesso");
-        }
-
-        public bool ProjetoEstaAtivo(string sigla)
-        {
-            return new ProjetoData().Buscar(sigla)?.Status == ProjetoStatus.Ativo;
         }
     }
 }

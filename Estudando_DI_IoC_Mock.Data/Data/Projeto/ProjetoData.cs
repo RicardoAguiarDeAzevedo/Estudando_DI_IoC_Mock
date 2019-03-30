@@ -23,5 +23,10 @@ namespace Estudando_DI_IoC_Mock.Data
         {
             return _projetos.SingleOrDefault(p => p.Sigla == sigla);
         }
+
+        public bool ProjetoEstaAtivo(IProjeto projeto)
+        {
+            return projeto.Status == ProjetoStatus.Ativo;
+        }
     }
 }
